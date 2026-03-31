@@ -13,7 +13,7 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        // Inisialisasi Komponen
+
         val inputJari = findViewById<EditText>(R.id.inputJari)
         val inputTinggi = findViewById<EditText>(R.id.inputTinggi)
         val btnLuas = findViewById<Button>(R.id.btnLuas)
