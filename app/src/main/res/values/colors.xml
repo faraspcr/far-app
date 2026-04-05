@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="primary_dark">#253334</color>
+    <color name="primary_soft">#7C9A92</color>
+    <color name="text_light">#FFFFFF</color>
+    <color name="text_gray">#BEC2C2</color>
+    <color name="border">#ACACAC</color>
+    <color name="error_red">#FF6B6B</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- WARNA PUTIH UNTUK JUDUL & SUBTITLE -->
+    <color name="white_text">#FFFFFF</color>
 </resources>

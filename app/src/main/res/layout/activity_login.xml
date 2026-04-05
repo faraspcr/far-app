@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/logo_zenspace" />
+
+        <!-- SIGN IN - panggil dari colors.xml -->
+        <TextView
+            android:id="@+id/tvLoginTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/alegreya_bold"
+            android:text="Sign In"
+            android:textColor="@color/text_light"
+            android:textSize="32sp" />
+
+        <!-- SUBTITLE - panggil dari colors.xml -->
+        <TextView
+            android:id="@+id/tvLoginSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/alegreya_sans_regular"
+            android:gravity="center"
+            android:text="Sign in now to access your exercises and saved music."
+            android:textColor="@color/text_light"
+            android:textSize="14sp" />
+
+        <!-- INPUT EMAIL -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/border"
+            app:hintTextColor="@color/text_gray">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_sans_regular"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/text_light"
+                android:textColorHint="@color/text_gray" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- INPUT PASSWORD -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/border"
+            app:endIconMode="password_toggle"
+            app:hintTextColor="@color/text_gray">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_sans_regular"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="@color/text_light"
+                android:textColorHint="@color/text_gray" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- FORGOT PASSWORD - DI KANAN -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvForgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_sans_regular"
+                android:text="Forgot Password?"
+                android:textColor="@color/text_gray"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- BUTTON LOGIN -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/primary_soft"
+            android:fontFamily="@font/alegreya_bold"
+            android:text="Login"
+            android:textColor="@color/text_light"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</ScrollView>
