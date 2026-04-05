@@ -12,11 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Farapps" >
 
-        <!-- LOGIN ACTIVITY (DIBUAT exported="true" BIAR BISA DIBUKA) -->
+        <!-- LOGIN ACTIVITY -->
         <activity
             android:name=".pertemuan_3.LoginActivity"
             android:exported="true">
-            <!-- INI DITAMBAHIN JADI LAUNCHER -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -28,12 +27,11 @@
             android:name=".pertemuan_3.WelcomeActivity"
             android:exported="false" />
 
-
         <activity
             android:name="com.example.far.pertemuan_2.SecondActivity"
             android:exported="true" />
 
-        <!-- MAIN ACTIVITY (BAWAAN PROJECT) -->
+        <!-- MAIN ACTIVITY-->
         <activity
             android:name=".MainActivity"
             android:exported="false" />
