@@ -1,68 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg_welcome"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="32dp">
+    android:layout_height="match_parent">
 
+    <!-- BACKGROUND FULL -->
     <ImageView
-        android:id="@+id/ivWelcomeLogo"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:src="@drawable/logo_zenspace" />
-
-    <TextView
-        android:id="@+id/tvWelcomeTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/alegreya_bold"
-        android:text="WELCOME"
-        android:textColor="@color/text_light"
-        android:textSize="30dp" />
-
-    <!-- NAMA USER -->
-    <TextView
-        android:id="@+id/tvUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/alegreya_bold"
-        android:text=""
-        android:textColor="@color/text_light"
-        android:textSize="30sp" />
-
-    <View
-        android:layout_width="60dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/primary_soft" />
-
-    <!-- DESKRIPSI - Alegreya Sans Medium, warna putih -->
-    <TextView
-        android:id="@+id/tvWelcomeSubtitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/alegreya_sans_regular"
-        android:gravity="center"
-        android:lineSpacingExtra="6dp"
-        android:text="Do meditation. Stay focused.\nLive a healthy life."
-        android:textColor="@color/text_light"
-        android:textSize="16sp" />
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_welcome"
+        android:scaleType="centerCrop" />
 
-    <!-- BUTTON GET STARTED - background 7C9A92, tulisan putih -->
-    <Button
-        android:id="@+id/btnGetStarted"
+    <!-- KONTEN -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="48dp"
-        android:backgroundTint="@color/primary_soft"
-        android:fontFamily="@font/alegreya_bold"
-        android:text="Get Started"
-        android:textColor="@color/text_light"
-        android:textSize="16sp" />
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/ivWelcomeLogo"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/logo_zenspace" />
+
+            <TextView
+                android:id="@+id/tvWelcomeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/alegreya_bold"
+                android:text="WELCOME"
+                android:textColor="@color/text_light"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/alegreya_bold"
+                android:text=""
+                android:textColor="@color/text_light"
+                android:textSize="30sp" />
+
+            <View
+                android:layout_width="60dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/primary_soft" />
+
+            <TextView
+                android:id="@+id/tvWelcomeSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/alegreya_sans_regular"
+                android:gravity="center"
+                android:lineSpacingExtra="6dp"
+                android:text="Do meditation. Stay focused.\nLive a healthy life."
+                android:textColor="@color/text_light"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnGetStarted"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="40dp"
+                android:backgroundTint="@color/primary_soft"
+                android:fontFamily="@font/alegreya_bold"
+                android:text="Get Started"
+                android:textColor="@color/text_light"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

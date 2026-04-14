@@ -4,11 +4,7 @@ plugins {
 
 android {
     namespace = "com.example.far_apps"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.far_apps"
@@ -33,7 +29,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 }
@@ -47,4 +43,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // CardView untuk layout
+    implementation("androidx.cardview:cardview:1.0.0")
 }

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- BACKGROUND LOGIN -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_login"
+        android:scaleType="centerCrop" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- TOMBOL BACK -->
+            <TextView
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="#7C9A92"
+                android:gravity="center"
+                android:text="←"
+                android:textColor="#FFFFFF"
+                android:textSize="28sp"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <!-- GREETING -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Good morning"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:fontFamily="@font/alegreya_sans_regular" />
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Emma ✨"
+                android:textColor="#FFFFFF"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/alegreya_bold" />
+
+            <!-- BALANCE YOUR MIND AND LIFE -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Balance Your Mind and Life"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:fontFamily="@font/alegreya_sans_regular"
+                android:alpha="0.8" />
+
+            <!-- TAB MENU: Activity Mood Food Sleep -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="24dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Activity"
+                    android:textColor="#7C9A92"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:fontFamily="@font/alegreya_bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mood"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:fontFamily="@font/alegreya_sans_regular" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Food"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:fontFamily="@font/alegreya_sans_regular" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sleep"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:fontFamily="@font/alegreya_sans_regular" />
+
+            </LinearLayout>
+
+            <!-- MOOD HISTORY -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Mood History"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/alegreya_bold" />
+
+            <!-- HARI: Mon Tue Wed Thr Fri -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mon"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:fontFamily="@font/alegreya_sans_regular" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tue"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:fontFamily="@font/alegreya_sans_regular" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Wed"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:fontFamily="@font/alegreya_sans_regular" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Thr"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:fontFamily="@font/alegreya_sans_regular" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Fri"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:fontFamily="@font/alegreya_sans_regular" />
+
+            </LinearLayout>
+
+            <!-- ACTIONS -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Actions"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/alegreya_bold" />
+
+            <!-- TOMBOL MEDITATE & JOURNAL -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnMeditate"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="#7C9A92"
+                    android:text="Meditate"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/alegreya_bold" />
+
+                <Button
+                    android:id="@+id/btnJournal"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#A8C3B8"
+                    android:text="Journal"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/alegreya_bold" />
+
+            </LinearLayout>
+
+            <!-- ACTIVITY SUGGESTIONS -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Activity Suggestions"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/alegreya_bold" />
+
+            <!-- CARD SUGGESTION -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="40dp"
+                android:background="#FFFFFF"
+                android:padding="20dp"
+                android:orientation="vertical"
+                android:elevation="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Take a 5-min session"
+                    android:textColor="#253334"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/alegreya_bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Start your mindfulness practice today"
+                    android:textColor="#666666"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/alegreya_sans_regular" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

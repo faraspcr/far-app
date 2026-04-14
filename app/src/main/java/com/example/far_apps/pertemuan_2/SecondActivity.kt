@@ -1,4 +1,4 @@
-package com.example.far.pertemuan_2
+package com.example.far_apps.pertemuan_2
 
 import android.os.Bundle
 import android.widget.Button
@@ -13,21 +13,24 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-
         val inputJari = findViewById<EditText>(R.id.inputJari)
         val inputTinggi = findViewById<EditText>(R.id.inputTinggi)
         val btnLuas = findViewById<Button>(R.id.btnLuas)
         val btnVolume = findViewById<Button>(R.id.btnVolume)
         val tvHasil = findViewById<TextView>(R.id.tvHasil)
+        val btnBack = findViewById<TextView>(R.id.btnBack)
 
-        // Logika Hitung Luas Lingkaran (π × r²)
+        // Tombol back
+        btnBack.setOnClickListener {
+            finish()
+        }
+
         btnLuas.setOnClickListener {
             val r = inputJari.text.toString().toDoubleOrNull() ?: 0.0
             val hasil = PI * r * r
             tvHasil.text = "Luas Lingkaran: %.2f".format(hasil)
         }
 
-        // Logika Hitung Volume Tabung (π × r² × tinggi)
         btnVolume.setOnClickListener {
             val r = inputJari.text.toString().toDoubleOrNull() ?: 0.0
             val t = inputTinggi.text.toString().toDoubleOrNull() ?: 0.0
