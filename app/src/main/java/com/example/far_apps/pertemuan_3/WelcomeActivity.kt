@@ -1,7 +1,9 @@
 package com.example.far_apps.pertemuan_3
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.far_apps.MainActivity
 import com.example.far_apps.databinding.ActivityWelcomeBinding
 
 class WelcomeActivity : AppCompatActivity() {
@@ -22,7 +24,11 @@ class WelcomeActivity : AppCompatActivity() {
 
     private fun setupGetStartedButton() {
         binding.btnGetStarted.setOnClickListener {
-            finish()
+            // LANGSUNG KE MAIN ACTIVITY
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("USERNAME", binding.tvUserName.text.toString())
+            startActivity(intent)
+            finish() // TUTUP WELCOME ACTIVITY
         }
     }
 }
