@@ -1,4 +1,4 @@
-package com.example.far_apps.pertemuan_5
+package com.example.far_apps.Home.pertemuan_5
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -18,7 +18,7 @@ class WebViewActivity : AppCompatActivity() {
         try {
             val toolbar = findViewById<Toolbar>(R.id.toolbar)
             setSupportActionBar(toolbar)
-            supportActionBar?.setTitle("Website Bina Desa")
+            supportActionBar?.setTitle("Website Pariwisata Desa")
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
             webView = findViewById(R.id.webView)

@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="BINA DESA"
+                android:text="PARIWISATA DESA"
                 android:textColor="@color/text_light"
                 android:textSize="28sp"
                 android:textStyle="bold"
@@ -74,7 +74,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Masukkan kredensial Anda"
+                        android:text="Masukkan Identitas Anda"
                         android:textSize="12sp"
                         android:textColor="@color/text_gray"
                         android:layout_marginBottom="24dp" />

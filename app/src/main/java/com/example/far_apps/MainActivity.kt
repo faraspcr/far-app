@@ -8,10 +8,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.far_apps.databinding.ActivityMainBinding
-import com.example.far_apps.pertemuan_2.SecondActivity
-import com.example.far_apps.pertemuan_4.FocusHealthActivity
-import com.example.far_apps.pertemuan_4.MeditationActivity
-import com.example.far_apps.pertemuan_5.WebViewActivity
+import com.example.far_apps.Home.pertemuan_2.SecondActivity
+import com.example.far_apps.Home.pertemuan_4.FocusHealthActivity
+import com.example.far_apps.Home.pertemuan_4.MeditationActivity
+import com.example.far_apps.Home.pertemuan_5.WebViewActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

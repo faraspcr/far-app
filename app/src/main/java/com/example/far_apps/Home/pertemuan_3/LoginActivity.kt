@@ -1,4 +1,4 @@
-package com.example.far_apps.pertemuan_3
+package com.example.far_apps.Home.pertemuan_3
 
 import android.content.Intent
 import android.os.Bundle

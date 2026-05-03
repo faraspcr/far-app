@@ -1,12 +1,14 @@
-package com.example.far_apps
+package com.example.far_apps.Home.pertemuan_6
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import com.example.far_apps.AuthActivity
+import com.example.far_apps.MainActivity
+import com.example.far_apps.R
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
@@ -19,7 +21,7 @@ class SplashScreenActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
 
             // CEK SHAREDPREFERENCES
-            val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+            val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
             val isLogin = sharedPref.getBoolean("isLogin", false)
 
             if (isLogin) {

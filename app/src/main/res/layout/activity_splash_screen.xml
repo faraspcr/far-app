@@ -29,7 +29,7 @@
             android:layout_below="@id/logoSplash"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="BINA DESA"
+            android:text="PARIWISATA DESA"
             android:textColor="@color/text_light"
             android:textSize="26sp"
             android:textStyle="bold"

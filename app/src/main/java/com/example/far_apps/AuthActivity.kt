@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.far_apps.databinding.ActivityAuthBinding
-import com.example.far_apps.pertemuan_3.WelcomeActivity
 
 class AuthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthBinding
@@ -25,20 +24,11 @@ class AuthActivity : AppCompatActivity() {
                     .putBoolean("isLogin", true)
                     .apply()
 
-                // LANGSUNG KE WELCOME ATAU MAIN?
-                // Pilih salah satu:
-//
-//                // OPSI 1: KE WELCOME DULU
-//                val intent = Intent(this, WelcomeActivity::class.java)
-//                intent.putExtra("USERNAME", username)
-//                startActivity(intent)
-//                finish()
-
-//                 OPSI 2: LANGSUNG KE MAIN (HAPUS YANG OPSI 1, PAKAI INI)
-                 val intent = Intent(this, MainActivity::class.java)
-                 intent.putExtra("USERNAME", username)
-                 startActivity(intent)
-                 finish()
+                // LANGSUNG KE BaseActivity
+                val intent = Intent(this, BaseActivity::class.java)
+                intent.putExtra("USERNAME", username)
+                startActivity(intent)
+                finish()
 
             } else {
                 AlertDialog.Builder(this)
