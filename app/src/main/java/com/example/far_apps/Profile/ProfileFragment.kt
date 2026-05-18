@@ -39,7 +39,6 @@ class ProfileFragment : Fragment() {
         setupSocialLinks()
         setupLogoutButton()
     }
-
     private fun setupSocialLinks() {
         // Instagram
         binding.icInstagram.setOnClickListener {
