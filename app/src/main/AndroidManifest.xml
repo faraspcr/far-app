@@ -14,56 +14,46 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Farapps"
         android:usesCleartextTraffic="true">
-
-        <!-- SPLASHSCREEN ACTIVITY (LAUNCHER) -->
+        <activity
+            android:name=".VerificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" /> <!-- SPLASHSCREEN ACTIVITY (LAUNCHER) -->
         <activity
             android:name=".Home.pertemuan_6.SplashScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.Farapps">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- AUTH ACTIVITY (LOGIN/REGISTER) -->
+        </activity> <!-- AUTH ACTIVITY (LOGIN/REGISTER) -->
         <activity
             android:name=".AuthActivity"
-            android:exported="false" />
-
-        <!-- BASE ACTIVITY (MENU UTAMA DENGAN BOTTOM NAVIGATION) -->
+            android:exported="false" /> <!-- BASE ACTIVITY (MENU UTAMA DENGAN BOTTOM NAVIGATION) -->
         <activity
             android:name=".BaseActivity"
-            android:exported="false" />
-
-        <!-- MAIN ACTIVITY (DASHBOARD LAMA - TIDAK DIGUNAKAN LAGI) -->
+            android:exported="false" /> <!-- MAIN ACTIVITY (DASHBOARD LAMA - TIDAK DIGUNAKAN LAGI) -->
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
-
-        <!-- PERTEMUAN 2 -->
+            android:exported="false" /> <!-- PERTEMUAN 2 -->
         <activity
             android:name=".Home.pertemuan_2.SecondActivity"
-            android:exported="false" />
-
-        <!-- PERTEMUAN 3 -->
+            android:exported="false" /> <!-- PERTEMUAN 3 -->
         <activity
             android:name=".Home.pertemuan_3.WelcomeActivity"
-            android:exported="false" />
-
-        <!-- PERTEMUAN 4 -->
+            android:exported="false" /> <!-- PERTEMUAN 4 -->
         <activity
             android:name=".Home.pertemuan_4.MeditationActivity"
             android:exported="false" />
         <activity
             android:name=".Home.pertemuan_4.FocusHealthActivity"
-            android:exported="false" />
-
-        <!-- PERTEMUAN 5 -->
+            android:exported="false" /> <!-- PERTEMUAN 5 -->
         <activity
             android:name=".Home.pertemuan_5.WebViewActivity"
             android:exported="false" />
-
     </application>
 
 </manifest>

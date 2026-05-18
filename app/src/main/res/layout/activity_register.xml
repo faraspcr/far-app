@@ -4,14 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- BACKGROUND FULL SCREEN -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/bg_login"
         android:scaleType="centerCrop" />
 
-    <!-- KONTEN -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,26 +23,25 @@
             android:gravity="center_horizontal">
 
             <ImageView
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginTop="40dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="20dp"
                 android:src="@drawable/logopariwisata" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="PARIWISATA DESA"
+                android:layout_marginTop="12dp"
+                android:text="Buat Akun Baru"
                 android:textColor="@color/text_light"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.1" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:text="Sistem Administrasi Pariwisata"
+                android:layout_marginBottom="20dp"
+                android:text="Daftar sebagai pengguna"
                 android:textColor="@color/text_light"
                 android:textSize="13sp"
                 android:alpha="0.85" />
@@ -65,7 +62,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Login Admin"
+                        android:text="Form Registrasi"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="@color/text_dark"
@@ -74,7 +71,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Masukkan Identitas Anda"
+                        android:text="Isi data diri dengan lengkap"
                         android:textSize="12sp"
                         android:textColor="@color/text_gray"
                         android:layout_marginBottom="24dp" />
@@ -83,6 +80,36 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:hint="Nama Lengkap"
+                        app:boxStrokeColor="@color/primary_soft">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/inputName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:hint="No. Handphone"
+                        app:boxStrokeColor="@color/primary_soft">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/inputPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
                         android:hint="Username"
                         app:boxStrokeColor="@color/primary_soft">
 
@@ -109,38 +136,16 @@
                             android:inputType="textPassword" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <!-- TOMBOL LOGIN -->
-                    <Button
-                        android:id="@+id/btnLogin"
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="LOGIN"
-                        android:textStyle="bold"
-                        android:textColor="@color/text_light"
-                        android:backgroundTint="@color/primary_soft"
-                        app:cornerRadius="12dp" />
-
-                    <!-- TOMBOL REGISTRASI -->
                     <Button
                         android:id="@+id/btnRegister"
                         android:layout_width="match_parent"
                         android:layout_height="52dp"
-                        android:layout_marginTop="12dp"
-                        android:text="REGISTRASI"
+                        android:layout_marginTop="32dp"
+                        android:text="DAFTAR"
                         android:textStyle="bold"
-                        android:textColor="@color/primary_soft"
-                        android:backgroundTint="@color/border"
+                        android:textColor="@color/text_light"
+                        android:backgroundTint="@color/primary_soft"
                         app:cornerRadius="12dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_gravity="center"
-                        android:text="Gunakan username dan password yang sama"
-                        android:textSize="11sp"
-                        android:textColor="@color/text_gray" />
 
                 </LinearLayout>
 
