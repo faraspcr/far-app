@@ -17,6 +17,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -25,13 +26,16 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         // TOOLBAR
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
         (requireActivity() as AppCompatActivity).supportActionBar?.apply {
             title = "Pariwisata Desa"
         }
+
         // Ambil username dari intent
         val username = requireActivity().intent.getStringExtra("USERNAME") ?: "Admin"
         binding.tvGreeting.text = "Selamat Datang $username!"
@@ -40,6 +44,7 @@ class HomeFragment : Fragment() {
         binding.btnSecondActivity.setOnClickListener {
             startActivity(Intent(requireContext(), SecondActivity::class.java))
         }
+
         // MENU 2: MEDITASI
         binding.btnMeditation.setOnClickListener {
             val intent = Intent(requireContext(), MeditationActivity::class.java)
@@ -58,7 +63,14 @@ class HomeFragment : Fragment() {
         binding.btnWebView.setOnClickListener {
             startActivity(Intent(requireContext(), WebViewActivity::class.java))
         }
+
+        // MENU 5: PERTEMUAN 9 - MATERIAL DESIGN
+        binding.btnPertemuan9.setOnClickListener {
+            val intent = Intent(requireContext(), com.example.far_apps.Home.pertemuan_9.NinthActivity::class.java)
+            startActivity(intent)
+        }
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

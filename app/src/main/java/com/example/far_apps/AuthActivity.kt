@@ -41,8 +41,8 @@ class AuthActivity : AppCompatActivity() {
             }
         }
 
-        // Tombol registrasi
-        binding.btnRegister.setOnClickListener {
+        // Tombol registrasi (Daftar Sekarang)
+        binding.tvRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }

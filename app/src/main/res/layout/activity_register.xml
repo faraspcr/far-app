@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- BACKGROUND -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -76,6 +77,7 @@
                         android:textColor="@color/text_gray"
                         android:layout_marginBottom="24dp" />
 
+                    <!-- INPUT NAMA LENGKAP -->
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
@@ -90,6 +92,7 @@
                             android:inputType="textPersonName" />
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <!-- INPUT NO. HANDPHONE -->
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
@@ -102,9 +105,10 @@
                             android:id="@+id/inputPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="number" />
+                            android:inputType="phone" />
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <!-- INPUT USERNAME -->
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
@@ -120,6 +124,7 @@
                             android:inputType="text" />
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <!-- INPUT PASSWORD -->
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
@@ -136,6 +141,7 @@
                             android:inputType="textPassword" />
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <!-- TOMBOL DAFTAR -->
                     <Button
                         android:id="@+id/btnRegister"
                         android:layout_width="match_parent"
@@ -146,6 +152,34 @@
                         android:textColor="@color/text_light"
                         android:backgroundTint="@color/primary_soft"
                         app:cornerRadius="12dp" />
+
+                    <!-- LINK LOGIN (Sudah punya akun? Login) -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sudah punya akun? "
+                            android:textColor="@color/text_dark"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvLogin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Login"
+                            android:textColor="@color/primary_soft"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:clickable="true"
+                            android:focusable="true" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 

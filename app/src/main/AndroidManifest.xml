@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- IZIN AKSES INTERNET UNTUK MEMUAT GAMBAR DARI URL -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -14,46 +15,91 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Farapps"
         android:usesCleartextTraffic="true">
+
+        <!-- ============================================== -->
+        <!-- PERTEMUAN 9 - MATERIAL DESIGN & LISTVIEW       -->
+        <!-- ============================================== -->
+
+        <!-- ACTIVITY UNTUK MENAMPILKAN MATERI PERTEMUAN 9 -->
+        <!-- BERISI: ChipGroup, GridLayout, TextInputLayout, MaterialButton, Background Wave -->
+        <activity
+            android:name=".Home.pertemuan_9.NinthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home.pertemuan_9.DestinasiWisataActivity"
+            android:exported="false" />
+
+        <!-- ============================================== -->
+        <!-- ACTIVITIES BAWAAN SISTEM (LOGIN, REGISTER, DLL)-->
+        <!-- ============================================== -->
+
+        <!-- ACTIVITY VERIFIKASI / LOADING -->
         <activity
             android:name=".VerificationActivity"
             android:exported="false" />
+
+        <!-- ACTIVITY REGISTER / DAFTAR AKUN -->
         <activity
             android:name=".RegisterActivity"
-            android:exported="false" /> <!-- SPLASHSCREEN ACTIVITY (LAUNCHER) -->
+            android:exported="false" />
+
+        <!-- ============================================== -->
+        <!-- SPLASHSCREEN (LAUNCHER / PERTAMA KALI DI BUKA) -->
+        <!-- ============================================== -->
         <activity
             android:name=".Home.pertemuan_6.SplashScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.Farapps">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- AUTH ACTIVITY (LOGIN/REGISTER) -->
+        </activity>
+
+        <!-- ACTIVITY LOGIN / AUTHENTIKASI -->
         <activity
             android:name=".AuthActivity"
-            android:exported="false" /> <!-- BASE ACTIVITY (MENU UTAMA DENGAN BOTTOM NAVIGATION) -->
+            android:exported="false" />
+
+        <!-- ACTIVITY UTAMA (BOTTOM NAVIGATION: HOME, DESTINASI, ABOUT, PROFILE) -->
         <activity
             android:name=".BaseActivity"
-            android:exported="false" /> <!-- MAIN ACTIVITY (DASHBOARD LAMA - TIDAK DIGUNAKAN LAGI) -->
+            android:exported="false" />
+
+        <!-- ACTIVITY DASHBOARD LAMA (TIDAK DIGUNAKAN LAGI) -->
         <activity
             android:name=".MainActivity"
-            android:exported="false" /> <!-- PERTEMUAN 2 -->
+            android:exported="false" />
+
+        <!-- ============================================== -->
+        <!-- PERTEMUAN SEBELUMNYA (2, 3, 4, 5)             -->
+        <!-- ============================================== -->
+
+        <!-- PERTEMUAN 2 - KALKULATOR BANGUN RUANG -->
         <activity
             android:name=".Home.pertemuan_2.SecondActivity"
-            android:exported="false" /> <!-- PERTEMUAN 3 -->
+            android:exported="false" />
+
+        <!-- PERTEMUAN 3 - WELCOME / HALAMAN SELAMAT DATANG -->
         <activity
             android:name=".Home.pertemuan_3.WelcomeActivity"
-            android:exported="false" /> <!-- PERTEMUAN 4 -->
+            android:exported="false" />
+
+        <!-- PERTEMUAN 4 - MEDITASI DAN RELAKSASI -->
         <activity
             android:name=".Home.pertemuan_4.MeditationActivity"
             android:exported="false" />
+
+        <!-- PERTEMUAN 4 - FOKUS DAN HIDUP SEHAT -->
         <activity
             android:name=".Home.pertemuan_4.FocusHealthActivity"
-            android:exported="false" /> <!-- PERTEMUAN 5 -->
+            android:exported="false" />
+
+        <!-- PERTEMUAN 5 - WEBSITE BINA DESA (WEBVIEW) -->
         <activity
             android:name=".Home.pertemuan_5.WebViewActivity"
             android:exported="false" />
+
     </application>
 
 </manifest>

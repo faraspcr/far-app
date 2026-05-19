@@ -37,6 +37,11 @@ class RegisterActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+
+        // Tombol "Login" (kembali ke halaman login)
+        binding.tvLogin.setOnClickListener {
+            finish()
+        }
     }
 
     private fun validateInput(name: String, phone: String, username: String, password: String): Boolean {
