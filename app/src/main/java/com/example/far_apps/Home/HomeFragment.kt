@@ -11,6 +11,7 @@ import com.example.far_apps.Home.pertemuan_2.SecondActivity
 import com.example.far_apps.Home.pertemuan_4.FocusHealthActivity
 import com.example.far_apps.Home.pertemuan_4.MeditationActivity
 import com.example.far_apps.Home.pertemuan_5.WebViewActivity
+import com.example.far_apps.Home.pertemuan_10.TenthActivity
 import com.example.far_apps.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -67,6 +68,12 @@ class HomeFragment : Fragment() {
         // MENU 5: PERTEMUAN 9 - MATERIAL DESIGN
         binding.btnPertemuan9.setOnClickListener {
             val intent = Intent(requireContext(), com.example.far_apps.Home.pertemuan_9.NinthActivity::class.java)
+            startActivity(intent)
+        }
+
+        // MENU 6: PERTEMUAN 10 - TABLAYOUT & RECYCLERVIEW
+        binding.btnPertemuan10.setOnClickListener {
+            val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
         }
     }
