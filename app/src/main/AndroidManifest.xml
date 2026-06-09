@@ -15,9 +15,11 @@
         android:theme="@style/Theme.Farapps"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Home.pertemuan_10.TenthActivity"
+            android:name=".Onboarding.OnboardingActivity"
             android:exported="false" />
-        <!-- ============================================== -->
+        <activity
+            android:name=".Home.pertemuan_10.TenthActivity"
+            android:exported="false" /> <!-- ============================================== -->
         <!-- PERTEMUAN 9 - MATERIAL DESIGN & LISTVIEW -->
         <!-- ============================================== -->
         <!-- ACTIVITY UNTUK MENAMPILKAN MATERI PERTEMUAN 9 -->

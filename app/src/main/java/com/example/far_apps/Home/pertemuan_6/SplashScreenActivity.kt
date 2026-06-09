@@ -8,6 +8,7 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.far_apps.AuthActivity
 import com.example.far_apps.MainActivity
+import com.example.far_apps.Onboarding.OnboardingActivity
 import com.example.far_apps.R
 
 @SuppressLint("CustomSplashScreen")
@@ -29,8 +30,8 @@ class SplashScreenActivity : AppCompatActivity() {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             } else {
-                // Jika belum login, arahkan ke halaman Login (Auth)
-                val intent = Intent(this, AuthActivity::class.java)
+                // Jika belum login, arahkan ke halaman onboarding
+                val intent = Intent(this, OnboardingActivity::class.java)
                 startActivity(intent)
             }
 

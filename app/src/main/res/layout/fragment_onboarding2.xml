@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E8F5E9">
+
+    <!-- BAGIAN ATAS: GAMBAR FULL (55% LAYAR) -->
+    <ImageView
+        android:id="@+id/ivOnboardingImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="70"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_onboarding2"
+        android:contentDescription="Onboarding Image" />
+
+    <!-- BAGIAN BAWAH: LINEARLAYOUT FULL DENGAN BACKGROUND SHAPE (45% LAYAR) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_weight="45"
+        android:layout_marginTop="-40dp"
+        android:background="@drawable/bg_card_top_left_radius"
+        android:gravity="top|center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="32dp"
+        android:paddingTop="56dp"
+        android:paddingRight="32dp"
+        android:paddingBottom="32dp"
+        android:elevation="16dp">
+
+        <!-- JUDUL (BERBEDA) -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Temukan Homestay Terbaik"
+            android:textColor="#1B5E20"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:fontFamily="@font/alegreya_bold"
+            android:layout_marginBottom="16dp" />
+
+        <!-- DESKRIPSI (BERBEDA) -->
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cari dan pesan homestay terbaik di desa kami. Nikmati pengalaman menginap yang nyaman dan berkesan."
+            android:textColor="#666666"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:lineSpacingExtra="6dp"
+            android:fontFamily="@font/alegreya_medium" />
+
+    </LinearLayout>
+
+</LinearLayout>
