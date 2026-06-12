@@ -8,6 +8,7 @@ import com.example.far_apps.About.AboutFragment
 import com.example.far_apps.Destinasi.DestinasiFragment
 import com.example.far_apps.Home.HomeFragment
 import com.example.far_apps.Profile.ProfileFragment
+import com.example.far_apps.TripNotes.TripNotesFragment
 import com.example.far_apps.databinding.ActivityBaseBinding
 
 class BaseActivity : AppCompatActivity() {
@@ -30,6 +31,10 @@ class BaseActivity : AppCompatActivity() {
                 }
                 R.id.destinasi -> {
                     replaceFragment(DestinasiFragment())
+                    true
+                }
+                R.id.tripNotes -> {
+                    replaceFragment(TripNotesFragment())
                     true
                 }
                 R.id.about -> {

@@ -16,4 +16,8 @@
         android:id="@+id/destinasi"
         android:icon="@android:drawable/ic_menu_mapmode"
         android:title="Destinasi" />
+    <item
+        android:id="@+id/tripNotes"
+        android:icon="@drawable/ic_notebook"
+        android:title="Trip Notes" />
 </menu>

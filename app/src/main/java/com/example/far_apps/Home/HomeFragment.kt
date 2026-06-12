@@ -59,7 +59,7 @@ class HomeFragment : Fragment() {
         // Load Fakta Kucing
         loadCatFact()
 
-        // Load Berita (DESTINASI WISATA DESA SPESIFIK)
+        // Load Berita
         loadBerita()
 
         // Tombol refresh fakta kucing
@@ -113,11 +113,8 @@ class HomeFragment : Fragment() {
                 .setTitle("Logout")
                 .setMessage("Yakin ingin keluar dari FAR Apps?")
                 .setPositiveButton("Ya") { _, _ ->
-                    // Hapus SharedPreferences
                     val sharedPref = requireContext().getSharedPreferences("user_pref", android.content.Context.MODE_PRIVATE)
                     sharedPref.edit().clear().apply()
-
-                    // Pindah ke AuthActivity
                     val intent = Intent(requireContext(), AuthActivity::class.java)
                     startActivity(intent)
                     requireActivity().finish()
@@ -131,29 +128,32 @@ class HomeFragment : Fragment() {
         lifecycleScope.launch {
             try {
                 val response = CatFactApiClient.apiService.getCatFact()
-                binding.tvCatFact.text = "\"${response.fact}\""
-                binding.tvCatFact.visibility = View.VISIBLE
+                // Cek binding masih ada sebelum update UI
+                if (_binding != null) {
+                    binding.tvCatFact.text = "\"${response.fact}\""
+                    binding.tvCatFact.visibility = View.VISIBLE
+                }
             } catch (e: Exception) {
-                binding.tvCatFact.text = "Gagal mengambil fakta kucing: ${e.message}"
-                binding.tvCatFact.visibility = View.VISIBLE
+                e.printStackTrace()
+                if (_binding != null) {
+                    binding.tvCatFact.text = "Gagal memuat fakta kucing. Periksa koneksi internet."
+                    binding.tvCatFact.visibility = View.VISIBLE
+                }
             }
         }
     }
 
     private fun loadBerita() {
-        // Tampilkan progressBar saat loading
         binding.progressBar.visibility = View.VISIBLE
 
-        // MOCK DATA BERITA - SEMUA TENTANG DESTINASI WISATA DESA SPESIFIK
-        // SUMBER BERITA REAL, GAMBAR DARI PICSUM.PHOTOS YANG NYAMBUNG DENGAN ARTIKEL
         val mockArticles = listOf(
             Article(
                 source = Source(null, "Republika.co.id"),
                 author = "Republika",
                 title = "Desa Wisata Penglipuran Bali Masuk 10 Desa Terindah di Dunia",
-                description = "Desa adat yang masih sangat lestari dengan arsitektur rumah khas Bali ini berhasil masuk daftar desa terindah versi联合国世界旅游组织.",
+                description = "Desa adat yang masih sangat lestari dengan arsitektur rumah khas Bali ini berhasil masuk daftar desa terindah.",
                 url = "https://www.republika.co.id/penglipuran-bali",
-                urlToImage = "https://picsum.photos/id/169/200/150",  // Rumah adat/perumahan tradisional
+                urlToImage = "https://picsum.photos/id/169/200/150",
                 publishedAt = "2026-06-08T07:30:00Z",
                 content = null
             ),
@@ -161,9 +161,9 @@ class HomeFragment : Fragment() {
                 source = Source(null, "Tempo.co"),
                 author = "Tempo",
                 title = "Naik Jeep Menikmati Sunrise di Desa Wisata Bromo Tengger Semeru",
-                description = "Paket wisata jeep sunrise di Desa Ngadas, Probolinggo kini menjadi favorit wisatawan domestik dan mancanegara.",
+                description = "Paket wisata jeep sunrise di Desa Ngadas, Probolinggo kini menjadi favorit wisatawan.",
                 url = "https://www.tempo.co/wisata-jeep-bromo",
-                urlToImage = "https://picsum.photos/id/15/200/150",  // Pegunungan/sunrise
+                urlToImage = "https://picsum.photos/id/15/200/150",
                 publishedAt = "2026-06-07T19:20:00Z",
                 content = null
             ),
@@ -173,7 +173,7 @@ class HomeFragment : Fragment() {
                 title = "Desa Wisata Ketep Pass Magelang, Spot Foto dengan Latar Gunung Merapi",
                 description = "Objek wisata edukasi dengan teleskop canggih untuk melihat aktivitas Gunung Merapi dan Merbabu.",
                 url = "https://www.jawapos.com/ketep-pass-magelang",
-                urlToImage = "https://picsum.photos/id/96/200/150",  // Gunung berapi/karst
+                urlToImage = "https://picsum.photos/id/96/200/150",
                 publishedAt = "2026-06-07T10:15:00Z",
                 content = null
             ),
@@ -183,7 +183,7 @@ class HomeFragment : Fragment() {
                 title = "Camping Ground Hits di Desa Wisata Cikole Lembang",
                 description = "Area perkemahan dengan pemandangan hutan pinus dan udara sejuk jadi incaran wisatawan akhir pekan.",
                 url = "https://www.koransindo.com/camping-cikole",
-                urlToImage = "https://picsum.photos/id/104/200/150",  // Hutan/air terjun
+                urlToImage = "https://picsum.photos/id/104/200/150",
                 publishedAt = "2026-06-06T14:45:00Z",
                 content = null
             ),
@@ -191,9 +191,9 @@ class HomeFragment : Fragment() {
                 source = Source(null, "Medcom.id"),
                 author = "Medcom",
                 title = "Desa Wisata Wae Rebo Flores, Desa di Atas Awan yang Mendunia",
-                description = "Desa tradisional dengan rumah adat berbentuk kerucut ini berada di ketinggian 1.200 mdpl. Wisatawan harus trekking 3 jam untuk mencapai desa.",
+                description = "Desa tradisional dengan rumah adat berbentuk kerucut ini berada di ketinggian 1.200 mdpl.",
                 url = "https://www.medcom.id/wae-rebo-flores",
-                urlToImage = "https://picsum.photos/id/96/200/150",  // Pegunungan/awan (konsisten dengan gunung)
+                urlToImage = "https://picsum.photos/id/96/200/150",
                 publishedAt = "2026-06-05T09:00:00Z",
                 content = null
             ),
@@ -201,20 +201,17 @@ class HomeFragment : Fragment() {
                 source = Source(null, "Liputan6.com"),
                 author = "Liputan6",
                 title = "Taman Bunga Desa Wisata Lembang Park Zoo, Hits Instagramable",
-                description = "Kombinasi kebun binatang mini dan taman bunga warna-warni dengan latar pegunungan jadi spot favorit para pengunjung.",
+                description = "Kombinasi kebun binatang mini dan taman bunga warna-warni dengan latar pegunungan.",
                 url = "https://www.liputan6.com/lembang-park-zoo",
-                urlToImage = "https://picsum.photos/id/106/200/150",  // Bunga/taman
+                urlToImage = "https://picsum.photos/id/106/200/150",
                 publishedAt = "2026-06-04T11:30:00Z",
                 content = null
             )
         )
 
-        // Setup RecyclerView dengan BeritaAdapter
         val adapter = BeritaAdapter(mockArticles)
         binding.rvBerita.layoutManager = LinearLayoutManager(requireContext())
         binding.rvBerita.adapter = adapter
-
-        // Sembunyikan progressBar setelah selesai
         binding.progressBar.visibility = View.GONE
 
         Toast.makeText(requireContext(), "Berhasil memuat ${mockArticles.size} destinasi wisata desa", Toast.LENGTH_SHORT).show()
