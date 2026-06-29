@@ -20,8 +20,18 @@ class BaseActivity : AppCompatActivity() {
         binding = ActivityBaseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Fragment default
-        replaceFragment(HomeFragment())
+        // Cek apakah dari notifikasi
+        val openFragment = intent.getStringExtra("open_fragment")
+
+        if (openFragment == "destinasi") {
+            // Langsung buka DestinasiFragment
+            replaceFragment(DestinasiFragment())
+            // Set selected item di bottom nav
+            binding.bottomNavView.selectedItemId = R.id.destinasi
+        } else {
+            // Default ke HomeFragment
+            replaceFragment(HomeFragment())
+        }
 
         binding.bottomNavView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {

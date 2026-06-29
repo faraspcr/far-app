@@ -35,6 +35,7 @@ android {
 }
 
 dependencies {
+    implementation("de.hdodenhof:circleimageview:3.1.0")
     // Room Database
     val room_version = "2.7.0"
     implementation("androidx.room:room-runtime:$room_version")

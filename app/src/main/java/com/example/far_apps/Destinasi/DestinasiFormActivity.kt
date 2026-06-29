@@ -1,15 +1,24 @@
 package com.example.far_apps.Destinasi
 
+import android.Manifest
+import android.content.Intent
 import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.far_apps.BaseActivity
+import com.example.far_apps.Home.pertemuan_9.DestinasiWisataActivity
 import com.example.far_apps.R
 import com.example.far_apps.data.AppDatabase
 import com.example.far_apps.data.entity.DestinasiEntity
 import com.example.far_apps.databinding.ActivityDestinasiFormBinding
+import com.example.far_apps.utils.NotificationHelper
+import com.example.far_apps.utils.PermissionHelper
+import com.example.far_apps.utils.ReminderHelper
 import kotlinx.coroutines.launch
 
 class DestinasiFormActivity : AppCompatActivity() {
@@ -30,6 +39,16 @@ class DestinasiFormActivity : AppCompatActivity() {
         "Wisata Pentingsari" to R.drawable.wisatapentingsari,
         "Placeholder" to R.drawable.ic_placeholder
     )
+
+    private val notificationPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        if (isGranted) {
+            Toast.makeText(this, "Notifikasi diizinkan", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Notifikasi ditolak", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +71,23 @@ class DestinasiFormActivity : AppCompatActivity() {
 
         setupSpinnerGambar()
         binding.btnSave.setOnClickListener { saveDestinasi() }
+
+        // 🔔 TOMBOL SET REMINDER
+        binding.btnSetReminder.setOnClickListener {
+            val namaDestinasi = binding.etNamaDestinasi.text.toString().trim()
+            if (namaDestinasi.isEmpty()) {
+                Toast.makeText(this, "Isi nama destinasi dulu!", Toast.LENGTH_SHORT).show()
+            } else {
+                showReminderDialog(namaDestinasi)
+            }
+        }
+
+        if (PermissionHelper.isNotificationPermissionRequired()) {
+            val permission = Manifest.permission.POST_NOTIFICATIONS
+            if (!PermissionHelper.hasPermission(this, permission)) {
+                PermissionHelper.requestPermission(notificationPermissionLauncher, permission)
+            }
+        }
     }
 
     private fun setupSpinnerGambar() {
@@ -71,9 +107,7 @@ class DestinasiFormActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                // Do nothing
-            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
     }
 
@@ -121,6 +155,7 @@ class DestinasiFormActivity : AppCompatActivity() {
                 )
                 db.destinasiDao().update(destinasi)
                 Toast.makeText(this@DestinasiFormActivity, "Destinasi berhasil diupdate!", Toast.LENGTH_SHORT).show()
+                tampilkanNotifikasi("Destinasi Diupdate", "Destinasi $namaDestinasi berhasil diupdate!")
             } else {
                 val destinasi = DestinasiEntity(
                     namaDestinasi = namaDestinasi,
@@ -131,9 +166,71 @@ class DestinasiFormActivity : AppCompatActivity() {
                 )
                 db.destinasiDao().insert(destinasi)
                 Toast.makeText(this@DestinasiFormActivity, "Destinasi berhasil ditambahkan!", Toast.LENGTH_SHORT).show()
+                tampilkanNotifikasi("Destinasi Baru", "Destinasi $namaDestinasi berhasil ditambahkan!")
+
+                // 🔔 TANYAKAN REMINDER SETELAH TAMBAH DESTINASI
+                showReminderDialog(namaDestinasi)
             }
             finish()
         }
+    }
+
+    private fun tampilkanNotifikasi(title: String, message: String) {
+        val intent = Intent(this, BaseActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            putExtra("open_fragment", "destinasi")
+        }
+        NotificationHelper.showNotification(
+            context = this,
+            title = title,
+            message = message,
+            intent = intent
+        )
+    }
+
+    // 🔔 FUNGSI REMINDER
+    private fun showReminderDialog(namaDestinasi: String) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Set Reminder")
+        builder.setMessage("Ingin diingatkan untuk cek destinasi $namaDestinasi?")
+
+        val input = android.widget.EditText(this)
+        input.hint = "Masukkan menit (contoh: 5)"
+        input.inputType = android.text.InputType.TYPE_CLASS_NUMBER
+        builder.setView(input)
+
+        builder.setPositiveButton("Ya, Set Reminder") { _, _ ->
+            val minutes = input.text.toString().toIntOrNull()
+            if (minutes != null && minutes > 0) {
+                setReminder(minutes, namaDestinasi)
+            } else {
+                Toast.makeText(this, "Masukkan menit yang valid!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        builder.setNegativeButton("Tidak") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        builder.show()
+    }
+
+    private fun setReminder(minutes: Int, namaDestinasi: String) {
+        val targetActivity = DestinasiWisataActivity::class.java
+
+        ReminderHelper.setReminderInMinutes(
+            context = this,
+            minutes = minutes,
+            title = "🔔 Reminder Destinasi",
+            message = "Waktunya cek destinasi $namaDestinasi di Bina Desa!",
+            targetActivity = targetActivity
+        )
+
+        Toast.makeText(
+            this,
+            "Reminder akan muncul dalam $minutes menit untuk cek $namaDestinasi",
+            Toast.LENGTH_LONG
+        ).show()
     }
 
     override fun onSupportNavigateUp(): Boolean {

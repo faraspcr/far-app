@@ -13,6 +13,8 @@
         android:background="@color/primary_dark"
         app:layout_constraintTop_toTopOf="parent"
         app:titleTextColor="@color/text_light"
+        app:title="Tambah Destinasi"
+        app:navigationIcon="?attr/homeAsUpIndicator"
         app:titleMarginStart="16dp" />
 
     <ScrollView
@@ -20,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintBottom_toTopOf="@+id/btnSave"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -152,17 +154,40 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSave"
+    <!-- LAYOUT UNTUK 2 TOMBOL: SIMPAN + SET REMINDER -->
+    <LinearLayout
+        android:id="@+id/buttonLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Simpan Destinasi"
-        android:textColor="@color/text_light"
-        android:backgroundTint="@color/primary_dark"
-        app:cornerRadius="12dp"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="Simpan Destinasi"
+            android:textColor="@color/text_light"
+            android:backgroundTint="@color/primary_dark"
+            app:cornerRadius="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSetReminder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="⏰ Set Reminder"
+            android:textColor="@color/text_light"
+            android:backgroundTint="#FF9800"
+            app:cornerRadius="12dp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

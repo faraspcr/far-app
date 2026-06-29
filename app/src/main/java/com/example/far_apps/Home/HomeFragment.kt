@@ -1,12 +1,13 @@
 package com.example.far_apps.Home
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -18,16 +19,29 @@ import com.example.far_apps.Home.pertemuan_2.SecondActivity
 import com.example.far_apps.Home.pertemuan_4.FocusHealthActivity
 import com.example.far_apps.Home.pertemuan_4.MeditationActivity
 import com.example.far_apps.Home.pertemuan_5.WebViewActivity
+import com.example.far_apps.Home.pertemuan_9.DestinasiWisataActivity
 import com.example.far_apps.data.api.CatFactApiClient
 import com.example.far_apps.data.model.Article
 import com.example.far_apps.data.model.Source
 import com.example.far_apps.databinding.FragmentHomeBinding
+import com.example.far_apps.utils.PermissionHelper
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+    // Launcher untuk permission notifikasi
+    private val notificationPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        if (isGranted) {
+            Toast.makeText(requireContext(), "Notifikasi diizinkan", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(requireContext(), "Notifikasi ditolak", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,6 +79,14 @@ class HomeFragment : Fragment() {
         // Tombol refresh fakta kucing
         binding.btnRefreshCatFact.setOnClickListener {
             loadCatFact()
+        }
+
+        // Cek permission notifikasi untuk Android 13+
+        if (PermissionHelper.isNotificationPermissionRequired()) {
+            val permission = Manifest.permission.POST_NOTIFICATIONS
+            if (!PermissionHelper.hasPermission(requireContext(), permission)) {
+                PermissionHelper.requestPermission(notificationPermissionLauncher, permission)
+            }
         }
     }
 
@@ -106,29 +128,12 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
         }
-
-        // MENU 7: LOGOUT
-        binding.btnLogout.setOnClickListener {
-            AlertDialog.Builder(requireContext())
-                .setTitle("Logout")
-                .setMessage("Yakin ingin keluar dari FAR Apps?")
-                .setPositiveButton("Ya") { _, _ ->
-                    val sharedPref = requireContext().getSharedPreferences("user_pref", android.content.Context.MODE_PRIVATE)
-                    sharedPref.edit().clear().apply()
-                    val intent = Intent(requireContext(), AuthActivity::class.java)
-                    startActivity(intent)
-                    requireActivity().finish()
-                }
-                .setNegativeButton("Tidak", null)
-                .show()
-        }
     }
 
     private fun loadCatFact() {
         lifecycleScope.launch {
             try {
                 val response = CatFactApiClient.apiService.getCatFact()
-                // Cek binding masih ada sebelum update UI
                 if (_binding != null) {
                     binding.tvCatFact.text = "\"${response.fact}\""
                     binding.tvCatFact.visibility = View.VISIBLE
