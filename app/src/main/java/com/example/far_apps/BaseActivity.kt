@@ -13,7 +13,6 @@ import com.example.far_apps.databinding.ActivityBaseBinding
 
 class BaseActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBaseBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

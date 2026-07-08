@@ -64,4 +64,15 @@ dependencies {
 
     // CardView untuk layout
     implementation("androidx.cardview:cardview:1.0.0")
+
+    // ===== Pertemuan 13: Kamera, QR Code & Barcode Scanner =====
+    // Generate QR Code
+    implementation("com.google.zxing:core:3.5.3")
+
+    // Scan QR Code (CameraX + ML Kit)
+    implementation("androidx.camera:camera-core:1.3.1")
+    implementation("androidx.camera:camera-camera2:1.3.1")
+    implementation("androidx.camera:camera-lifecycle:1.3.1")
+    implementation("androidx.camera:camera-view:1.3.1")
+    implementation("com.google.mlkit:barcode-scanning:17.2.0")
 }

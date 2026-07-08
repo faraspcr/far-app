@@ -21,7 +21,6 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.inputPassword.text.toString().trim()
 
             if (validateInput(name, phone, username, password)) {
-                // Bersihkan nomor HP (hanya angka)
                 val cleanedPhone = phone.replace(Regex("[^0-9]"), "")
 
                 // Simpan data user sementara

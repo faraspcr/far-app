@@ -11,7 +11,6 @@ class DestinasiRoomAdapter(
     private val onEditClick: (DestinasiEntity) -> Unit,
     private val onDeleteClick: (DestinasiEntity) -> Unit
 ) : RecyclerView.Adapter<DestinasiRoomAdapter.DestinasiViewHolder>() {
-
     inner class DestinasiViewHolder(private val binding: ItemDestinasiBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -32,7 +31,6 @@ class DestinasiRoomAdapter(
             binding.btnDelete.setOnClickListener { onDeleteClick(destinasi) }
         }
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DestinasiViewHolder {
         val binding = ItemDestinasiBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return DestinasiViewHolder(binding)

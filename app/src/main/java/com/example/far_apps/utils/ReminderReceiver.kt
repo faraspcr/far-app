@@ -6,7 +6,6 @@ import android.content.Intent
 import com.example.far_apps.BaseActivity
 
 class ReminderReceiver : BroadcastReceiver() {
-
     override fun onReceive(context: Context, intent: Intent) {
         // Ambil data dari intent
         val title = intent.getStringExtra("title") ?: "Pengingat Bina Desa"

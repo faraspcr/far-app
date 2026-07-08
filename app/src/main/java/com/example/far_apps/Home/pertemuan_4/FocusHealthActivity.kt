@@ -9,7 +9,6 @@ import com.example.far_apps.R
 import com.example.far_apps.databinding.ActivityFocusHealthBinding
 
 class FocusHealthActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityFocusHealthBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -72,7 +72,7 @@ class VerificationActivity : AppCompatActivity() {
         return if (phoneNumber.length >= 4) {
             phoneNumber.takeLast(4)
         } else {
-            phoneNumber  // kalau kurang dari 4 digit, ya pakai semua
+            phoneNumber
         }
     }
 

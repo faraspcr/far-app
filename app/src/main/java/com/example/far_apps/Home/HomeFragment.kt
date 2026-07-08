@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.far_apps.AuthActivity
 import com.example.far_apps.Home.berita.BeritaAdapter
 import com.example.far_apps.Home.pertemuan_10.TenthActivity
+import com.example.far_apps.Home.pertemuan_13.CameraCaptureActivity
 import com.example.far_apps.Home.pertemuan_2.SecondActivity
 import com.example.far_apps.Home.pertemuan_4.FocusHealthActivity
 import com.example.far_apps.Home.pertemuan_4.MeditationActivity
@@ -99,7 +100,8 @@ class HomeFragment : Fragment() {
         // MENU 2: MEDITASI
         binding.btnMeditation.setOnClickListener {
             val intent = Intent(requireContext(), MeditationActivity::class.java)
-            val username = binding.tvGreeting.text.toString().replace("Selamat Datang ", "").replace("!", "")
+            val username =
+                binding.tvGreeting.text.toString().replace("Selamat Datang ", "").replace("!", "")
             intent.putExtra("USERNAME", username)
             startActivity(intent)
         }
@@ -107,7 +109,8 @@ class HomeFragment : Fragment() {
         // MENU 3: FOKUS & HIDUP SEHAT
         binding.btnFocusHealth.setOnClickListener {
             val intent = Intent(requireContext(), FocusHealthActivity::class.java)
-            val username = binding.tvGreeting.text.toString().replace("Selamat Datang ", "").replace("!", "")
+            val username =
+                binding.tvGreeting.text.toString().replace("Selamat Datang ", "").replace("!", "")
             intent.putExtra("USERNAME", username)
             startActivity(intent)
         }
@@ -119,13 +122,21 @@ class HomeFragment : Fragment() {
 
         // MENU 5: PERTEMUAN 9 - MATERIAL DESIGN
         binding.btnPertemuan9.setOnClickListener {
-            val intent = Intent(requireContext(), com.example.far_apps.Home.pertemuan_9.NinthActivity::class.java)
+            val intent = Intent(
+                requireContext(),
+                com.example.far_apps.Home.pertemuan_9.NinthActivity::class.java
+            )
             startActivity(intent)
         }
 
         // MENU 6: PERTEMUAN 10 - TABLAYOUT & RECYCLERVIEW
         binding.btnPertemuan10.setOnClickListener {
             val intent = Intent(requireContext(), TenthActivity::class.java)
+            startActivity(intent)
+        }
+        // MENU 7: PERTEMUAN 13
+        binding.btnPertemuan13.setOnClickListener {
+            val intent = Intent(requireContext(), com.example.far_apps.Home.pertemuan_13.ThirteenthActivity::class.java)
             startActivity(intent)
         }
     }

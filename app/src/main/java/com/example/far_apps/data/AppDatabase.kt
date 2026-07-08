@@ -18,7 +18,6 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun destinasiDao(): DestinasiDao
     abstract fun tripNotesDao(): TripNotesDao
-
     companion object {
         @Volatile
         private var INSTANCE: AppDatabase? = null

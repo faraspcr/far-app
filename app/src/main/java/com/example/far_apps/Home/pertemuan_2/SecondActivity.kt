@@ -1,17 +1,18 @@
 package com.example.far_apps.Home.pertemuan_2
-
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.far_apps.R
 import kotlin.math.PI
-
 class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
@@ -30,16 +31,21 @@ class SecondActivity : AppCompatActivity() {
             val r = inputJari.text.toString().toDoubleOrNull() ?: 0.0
             val hasil = PI * r * r
             tvHasil.text = "Luas Lingkaran: %.2f".format(hasil)
+            Toast.makeText(this, "Perhitungan luas berhasil!", Toast.LENGTH_SHORT).show()
+            Log.d("KalkulatorActivity", "Jari-jari: $r, Hasil Luas: $hasil")
         }
-
         btnVolume.setOnClickListener {
             val r = inputJari.text.toString().toDoubleOrNull() ?: 0.0
             val t = inputTinggi.text.toString().toDoubleOrNull() ?: 0.0
             val hasil = PI * r * r * t
             tvHasil.text = "Volume Tabung: %.2f".format(hasil)
+
+            Toast.makeText(this, "Perhitungan volume berhasil!", Toast.LENGTH_SHORT).show()
+
+            Log.d("KalkulatorActivity", "Jari-jari: $r, Tinggi: $t, Hasil Volume: $hasil")
         }
     }
-
+    //    TOMBOL BACK DI TOOLBAR
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
             finish()

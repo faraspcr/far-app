@@ -1,123 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#E8F5E9">
 
+<!--    Isi semua konten-->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/primary_soft"
-        app:titleTextColor="@color/text_light" />
+        app:titleTextColor="@color/text_light"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+    <TextView
+        android:id="@+id/tvJudul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="📐 Kalkulator"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#1B5E20"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/labelJari"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="⚪ Jari-jari (r)"
+        android:textSize="14sp"
+        android:textColor="#333"
+        app:layout_constraintTop_toBottomOf="@id/tvJudul"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp" />
+
+    <EditText
+        android:id="@+id/inputJari"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Jari-jari"
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/labelJari"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/labelTinggi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="📏 Tinggi (t)"
+        android:textSize="14sp"
+        android:textColor="#333"
+        app:layout_constraintTop_toBottomOf="@id/inputJari"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="20dp" />
+
+    <EditText
+        android:id="@+id/inputTinggi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Tinggi"
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/labelTinggi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="4dp" />
+
+    <Button
+        android:id="@+id/btnLuas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="🟢 Hitung Luas Lingkaran"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/inputTinggi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/btnVolume"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="🔵 Hitung Volume Tabung"
+        android:backgroundTint="#2196F3"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/btnLuas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/tvHasil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Hasil: 0"
+        android:textSize="22sp"
+        android:textColor="#1B5E20"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="#FFFFFF"
         android:padding="20dp"
-        android:gravity="center_horizontal">
+        app:layout_constraintTop_toBottomOf="@id/btnVolume"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="📐 Kalkulator"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="#1B5E20"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="══════════════════"
-            android:textSize="16sp"
-            android:textColor="#4CAF50"
-            android:layout_marginBottom="30dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="⚪ Jari-jari (r)"
-            android:textSize="14sp"
-            android:textColor="#333"
-            android:layout_marginBottom="5dp"
-            android:layout_gravity="start"/>
-
-        <EditText
-            android:id="@+id/inputJari"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Masukkan Jari-jari"
-            android:inputType="numberDecimal"
-            android:background="@android:drawable/editbox_background"
-            android:padding="12dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="📏 Tinggi (t)"
-            android:textSize="14sp"
-            android:textColor="#333"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="5dp"
-            android:layout_gravity="start"/>
-
-        <EditText
-            android:id="@+id/inputTinggi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Masukkan Tinggi (Hanya untuk Volume Tabung)"
-            android:inputType="numberDecimal"
-            android:background="@android:drawable/editbox_background"
-            android:padding="12dp"/>
-
-        <Button
-            android:id="@+id/btnLuas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="🟢 Hitung Luas Lingkaran"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#4CAF50"
-            android:padding="14dp"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
-
-        <Button
-            android:id="@+id/btnVolume"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="🔵 Hitung Volume Tabung"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#2196F3"
-            android:padding="14dp"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#CCC"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"/>
-
-        <TextView
-            android:id="@+id/tvHasil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hasil: 0"
-            android:textSize="22sp"
-            android:textColor="#1B5E20"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:background="#FFFFFF"
-            android:padding="20dp"/>
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

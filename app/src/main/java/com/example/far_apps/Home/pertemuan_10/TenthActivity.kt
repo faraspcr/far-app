@@ -42,6 +42,24 @@ class TenthActivity : AppCompatActivity() {
                 }
             }
         }.attach()
+
+        // ✅ WARNA ICON BERUBAH SAAT DIPILIH
+        binding.tabLayout.addOnTabSelectedListener(object : com.google.android.material.tabs.TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: com.google.android.material.tabs.TabLayout.Tab?) {
+                tab?.icon?.setTint(ContextCompat.getColor(this@TenthActivity, R.color.primary_dark))
+            }
+
+            override fun onTabUnselected(tab: com.google.android.material.tabs.TabLayout.Tab?) {
+                tab?.icon?.setTint(ContextCompat.getColor(this@TenthActivity, R.color.gray))
+            }
+
+            override fun onTabReselected(tab: com.google.android.material.tabs.TabLayout.Tab?) {}
+        })
+
+        // WARNA INDICATOR
+        binding.tabLayout.setSelectedTabIndicatorColor(
+            ContextCompat.getColor(this, R.color.primary_dark)
+        )
     }
 
     override fun onSupportNavigateUp(): Boolean {

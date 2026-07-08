@@ -215,6 +215,30 @@
 
             </androidx.cardview.widget.CardView>
 
+            <!-- BUTTON 7: PERTEMUAN 13 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="@color/white">
+
+                <Button
+                    android:id="@+id/btnPertemuan13"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:backgroundTint="@color/white"
+                    android:text="Pertemuan 13 - Kamera &amp; QR Code"
+                    android:fontFamily="@font/alegreya_bold"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:elevation="0dp"
+                    android:foreground="?attr/selectableItemBackground" />
+
+            </androidx.cardview.widget.CardView>
+
             <!-- FAKTA KUCING SECTION -->
             <TextView
                 android:layout_width="match_parent"

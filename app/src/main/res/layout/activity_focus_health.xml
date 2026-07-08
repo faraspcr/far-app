@@ -51,7 +51,6 @@
                         android:id="@+id/tvUserName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Emma ✨"
                         android:textColor="#FFFFFF"
                         android:textSize="32sp"
                         android:textStyle="bold"

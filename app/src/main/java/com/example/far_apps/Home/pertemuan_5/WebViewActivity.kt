@@ -10,7 +10,6 @@ import androidx.appcompat.widget.Toolbar
 import com.example.far_apps.R
 
 class WebViewActivity : AppCompatActivity() {
-
     private lateinit var webView: WebView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
